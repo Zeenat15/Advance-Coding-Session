@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Climbing_Stair_Recursive {
+    // go from 0 stair to 6 stair
+    // you can only jump 1,2,3 step
+    // find out total number of solution
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        int ans = climb(0 , num);
+        System.out.println(ans);
+    }
+
+    public static int climb(int i , int n) {
+        if(i > n){
+            return 0;
+        } else if (i == n) {
+            return 1;
+        } else {
+            return (climb(i+1,n) + climb(i+2, n) + climb(i+3, n));
+        }
+    }
+}
