@@ -9,17 +9,36 @@ public class Climbing_Stair_Recursive {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
 
-        int ans = climb(0 , num);
+        //METHOD 1:
+        //int ans = climb(0 , num);
+
+        //METHOD 2:
+        int ans = climb(num);
+
+        //PRINT TOTAL NUMBER OF WAYS POSSIBLE
         System.out.println(ans);
     }
 
-    public static int climb(int i , int n) {
-        if(i > n){
+    //METHOD 1:
+//    public static int climb(int i , int n) {
+//        if(i > n){
+//            return 0;
+//        } else if (i == n) {
+//            return 1;
+//        } else {
+//            return (climb(i+1,n) + climb(i+2, n) + climb(i+3, n));
+//        }
+//    }
+
+
+    //METHOD 2:
+    public static int climb(int n) {
+        if(n < 0){
             return 0;
-        } else if (i == n) {
+        } else if (n == 0) {
             return 1;
         } else {
-            return (climb(i+1,n) + climb(i+2, n) + climb(i+3, n));
+            return (climb(n-1) + climb(n-2) + climb( n-3));
         }
     }
 }
