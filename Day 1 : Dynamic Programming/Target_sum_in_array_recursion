@@ -1,0 +1,22 @@
+
+import java.util.Scanner;
+import java.util.Vector;
+
+public class Target_Sum_in_Array_Recursion {
+    public static void main(String[] args) {
+        int[] arr = {3,5,1,2,4,6};
+        int targetSum = 7;
+        TSS(arr, targetSum, "", 0, 0);
+    }
+
+    public static void TSS(int[] a, int tar, String asf, int sum, int i) {
+        if (i == a.length) {
+            if (sum == tar) {
+                System.out.println(asf);
+            }
+            return;
+        }
+        TSS(a, tar, asf + a[i] + "-", sum + a[i], i + 1);
+        TSS(a, tar, asf, sum, i + 1);
+    }
+}
